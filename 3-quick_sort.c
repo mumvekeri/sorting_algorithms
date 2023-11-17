@@ -10,7 +10,7 @@ void swap(int *a, int *b);
 void swap(int *a, int *b)
 {
 	int temp;
-	
+
 	temp = *a;
 	*a = *b;
 	*b = temp;
@@ -22,11 +22,11 @@ void swap(int *a, int *b)
  */
 void swap_int(int *a, int *b)
 {
-        int temp;
+	int temp;
 
-        temp = *a;
-        *a = *b;
-        *b = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 /**
  * partition - partitions an array using the Lomuto scheme
