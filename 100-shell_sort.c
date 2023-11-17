@@ -24,8 +24,7 @@ void shell_sort(int *array, size_t size)
 		{
 			temp = array[i];
 			
-			for (j = i; j >= interval && array[j - interval] > 
-					temp; j -= interval)
+			for (j = i; j >= interval && array[j - interval] > temp; j -= interval)
 			{
 				array[j] = array[j - interval];
 			}
