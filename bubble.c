@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdbool.h>
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * swap - swaps two elements
@@ -9,10 +8,10 @@
  */
 void swap(int *a, int *b)
 {
-	int temp;
-
 	if (a == NULL || b == NULL)
 		return;
+
+	int temp;
 
 	temp = *a;
 	*a = *b;
@@ -32,22 +31,20 @@ void bubble_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	for (i = 0, last = size - 1; i < last; i++)
+	for (i = 0; i < size - 1; i++)
 	{
 		swapped = false;
 
-		for (j = 0; j < last - i; j++)
+		for (j = 0; j < size - i - 1; j++)
 		{
 			if (array[j] > array[j + 1])
 			{
 				swap(&array[j], &array[j + 1]);
-				swapped = true;
-				last = j;
-
+				swapped = 1;
 				print_array(array, size);
 			}
 		}
-		if (swapped == false)
+		if (swapped == 0)
 			break;
 	}
 }
