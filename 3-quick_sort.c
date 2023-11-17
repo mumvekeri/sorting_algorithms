@@ -1,6 +1,33 @@
 #include <stdio.h>
 #include "sort.h"
 
+void swap(int *a, int *b);
+/**
+ * swap - swaps two elements
+ * @a: pointer to the first element
+ * @b: pointer to the second element
+ */
+void swap(int *a, int *b)
+{
+	int temp;
+	
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+/**
+ * swap_int - swaps the values of two integers
+ * @a: pointer to the first integer
+ * @b: pointer to the second integer
+ */
+void swap_int(int *a, int *b)
+{
+        int temp;
+
+        temp = *a;
+        *a = *b;
+        *b = temp;
+}
 /**
  * partition - partitions an array using the Lomuto scheme
  * @array: the array to be partitioned
