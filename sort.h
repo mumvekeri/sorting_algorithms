@@ -37,4 +37,8 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2);
 void counting_sort(int *array, size_t size);
 void merge(int *array, size_t size, int *left, int *right, size_t middle);
 void merge_sort(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void heapify(int *array, size_t size);
+void sift_down(int *array, size_t start, size_t end, size_t size);
+void swap(int *array, size_t i, size_t j, size_t size);
 #endif /* _SORT_H_ */
