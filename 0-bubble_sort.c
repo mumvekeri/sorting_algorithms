@@ -5,6 +5,7 @@
  * swap - swaps two elements
  * @a: pointer to the first element
  * @b: pointer to the second element
+ * Return: void
  */
 void swap(int *a, int *b)
 {
@@ -19,6 +20,7 @@ void swap(int *a, int *b)
  * bubble_sort - sorts an array of integers in ascending order
  * @array: pointer to the array
  * @size: size of the array
+ * Return: nothing
  */
 void bubble_sort(int *array, size_t size)
 {
