@@ -40,5 +40,5 @@ void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void heapify(int *array, size_t size);
 void sift_down(int *array, size_t start, size_t end, size_t size);
-void swap(int *array, size_t i, size_t j, size_t size);
+void swaps(int *array, size_t i, size_t j, size_t size);
 #endif /* _SORT_H_ */

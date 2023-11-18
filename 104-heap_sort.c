@@ -1,13 +1,13 @@
 #include "sort.h"
 
 /**
- * swap - swaps two elements in an array
+ * swaps - swaps two elements in an array
  * @array: pointer to the array
  * @i: index of the first element
  * @j: index of the second element
  * @size: size of the array
  */
-void swap(int *array, size_t i, size_t j, size_t size)
+void swaps(int *array, size_t i, size_t j, size_t size)
 {
 	int tmp;
 
@@ -38,7 +38,7 @@ void sift_down(int *array, size_t start, size_t end, size_t size)
 			child = right;
 		if (array[root] < array[child])
 		{
-			swap(array, root, child, size);
+			swaps(array, root, child, size);
 			root = child;
 		}
 		else
@@ -81,7 +81,7 @@ void heap_sort(int *array, size_t size)
 	end = size - 1;
 	while (end > 0)
 	{
-		swap(array, 0, end, size);
+		swaps(array, 0, end, size);
 		end--;
 		sift_down(array, 0, end, size);
 	}
