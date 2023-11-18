@@ -19,7 +19,8 @@ int get_max(int *array, size_t size)
 }
 
 /**
- * counting_sort_radix - sorts an array of integers in ascending order using the
+ * counting_sort_radix - sorts an array of integers in
+ * ascending order using the
  * Counting sort algorithm for a specific digit
  * @array: pointer to the array
  * @size: size of the array
