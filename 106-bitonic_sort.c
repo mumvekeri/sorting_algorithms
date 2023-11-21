@@ -30,6 +30,7 @@ void bitonic_merge(int *array, size_t size, int up)
 	if (size > 1)
 	{
 		size_t k = size / 2;
+
 		printf("Merging [%lu/%lu] (%s):\n", size, size,
 				(up ? "UP" : "DOWN"));
 		print_array(array, size);
@@ -79,6 +80,7 @@ void bitonic_compare(int *array, size_t size, int up)
 void swap(int *array, int i, int j)
 {
 	int tmp = array[i];
+
 	array[i] = array[j];
 	array[j] = tmp;
 }
