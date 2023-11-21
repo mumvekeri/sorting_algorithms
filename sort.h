@@ -45,5 +45,5 @@ int get_max(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void bitonic_merge(int *array, size_t size, int up);
 void bitonic_compare(int *array, size_t size, int up);
-void swap(int *array, int i, int j);
+void swapss(int *array, int i, int j);
 #endif
