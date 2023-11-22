@@ -2,6 +2,8 @@
 #include "sort.h"
 #include <stdlib.h>
 
+#define UP 1
+#define DOWN 0
 /**
  * bitonic_sort - sorts an array of integers in ascending order
  * using the Bitonic sort algorithm
