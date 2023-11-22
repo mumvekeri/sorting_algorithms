@@ -1,90 +1,97 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "sort.h"
+
+void swap_ints(int *a, int *b);
+int hoare_partition(int *array, size_t size, int left, int right);
+void hoare_sort(int *array, size_t size, int left, int right);
+void quick_sort_hoare(int *array, size_t size);
 
 /**
- * quick_sort_hoare - sorts an array of integers in ascending order
- * using the Quick sort algorithm with Hoare partition scheme
- * @array: pointer to the array of integers
- * @size: the size of the array
+ * swap_ints - Swap two integers in an array of srings
+ * @a: The first integer
+ * @b: The second integer
+ * Return: void.
+ */
+void swap_ints(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
+ * hoare_partition - Order a subset of an array of integers
+ *                   according to the hoare partition scheme.
+ * @array: The array of integers.
+ * @size: The size of the array.
+ * @left: The starting index of the subset to order.
+ * @right: The ending index of the subset to order.
+ *
+ * Return: The final partition index.
+ *
+ * Description: Uses the last element of the partition as the pivot.
+ * Prints the array after each swap of two elements.
+ */
+int hoare_partition(int *array, size_t size, int left, int right)
+{
+	int pivot, above, below;
+
+	pivot = array[right];
+	for (above = left - 1, below = right + 1; above < below;)
+	{
+		do {
+			above++;
+		} while (array[above] < pivot);
+		do {
+			below--;
+		} while (array[below] > pivot);
+
+		if (above < below)
+		{
+			swap_ints(array + above, array + below);
+			print_array(array, size);
+		}
+	}
+
+	return (above);
+}
+
+/**
+ * hoare_sort - Implement the quicksort algorithm through recursion.
+ * @array: An array of integers to sort.
+ * @size: The size of the array.
+ * @left: The starting index of the array partition to order.
+ * @right: The ending index of the array partition to order.
+ *
+ * Description: Uses the Hoare partition scheme.
+ */
+void hoare_sort(int *array, size_t size, int left, int right)
+{
+	int part;
+
+	if (right - left > 0)
+	{
+		part = hoare_partition(array, size, left, right);
+		hoare_sort(array, size, left, part - 1);
+		hoare_sort(array, size, part, right);
+	}
+}
+
+/**
+ * quick_sort_hoare - Sort an array of integers in ascending
+ *                    order using the quicksort algorithm.
+ * @array: An array of integers.
+ * @size: The size of the array.
+ *
+ * Description: Uses the Hoare partition scheme. Prints
+ * the array after each swap of two elements.
  */
 void quick_sort_hoare(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	hoare_sort(array, 0, size - 1, size);
+
+	hoare_sort(array, size, 0, size - 1);
 }
 
-/**
- * hoare_sort - sorts a partition of an array using Hoare scheme
- * @array: pointer to the array of integers
- * @low: the lowest index of the partition
- * @high: the highest index of the partition
- * @size: the size of the array
- */
-void hoare_sort(int *array, int low, int high, size_t size)
-{
-	int pivot;
-
-	if (low < high)
-	{
-		pivot = hoare_partition(array, low, high, size);
-		hoare_sort(array, low, pivot, size);
-		hoare_sort(array, pivot + 1, high, size);
-	}
-}
-
-/**
- * hoare_partition - partitions an array using Hoare scheme
- * @array: pointer to the array of integers
- * @low: the lowest index of the partition
- * @high: the highest index of the partition
- * @size: the size of the array
- * Return: the final partition index
- */
-int hoare_partition(int *array, int low, int high, size_t size)
-{
-	int i, j, pivot, temp;
-
-	pivot = array[high];
-	i = low - 1;
-	j = high + 1;
-	while (1)
-	{
-		do {
-			i++;
-		} while (array[i] < pivot);
-		do {
-			j--;
-		} while (array[j] > pivot);
-		if (i < j)
-		{
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-			print_array(array, size);
-		}
-		else
-		{
-			return (j);
-		}
-	}
-}
-
-/**
- * print_array - prints an array of integers
- * @array: pointer to the array of integers
- * @size: the size of the array
- */
-void print_array(int *array, size_t size)
-{
-	size_t i;
-
-	printf("[");
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i < size - 1)
-			printf(", ");
-	}
-	printf("]\n");
-}
